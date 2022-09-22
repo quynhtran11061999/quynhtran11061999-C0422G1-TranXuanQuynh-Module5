@@ -14,7 +14,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Add Facility</title>
+    <title>Add Customer</title>
     <link rel="shortcut icon"
           href="https://furamavietnam.com/wp-content/uploads/2018/07/favicon.png"
           type="image/x-icon">
@@ -130,8 +130,8 @@
             <div class="col-lg-12">
                 <div class="breadcrumb_iner">
                     <div class="breadcrumb_iner_item text-center">
-                        <h2>DỊCH VỤ</h2>
-                        <p>Thêm mới dịch vụ</p>
+                        <h2>KHÁCH HÀNG</h2>
+                        <p>Thêm mới khách hàng</p>
                     </div>
                 </div>
             </div>
@@ -147,95 +147,71 @@
             <div class="col-lg-5 shadow">
                 <img src="../../img/pexels-jonaorle-4814636.jpg" height="auto"/></div>
             <div class="col-lg-7 shadow">
-                <h2 class="text-center m-3">Thêm mới dịch vụ</h2>
+                <h2 class="text-center m-3">Thêm mới khách hàng</h2>
                 <fieldset>
                     <table class="form-control-lg table table-primary table-striped">
                         <tr>
                             <td>
-                                <label>Loại dịch vụ:</label>
-                                <select class="form-select-lg text-center form-control" style="width: 100%"
-                                        onchange="showServiceInput(this.value)">
-                                    <option>Villa</option>
-                                    <option>House</option>
-                                    <option>Room</option>
-                                </select>
+                                <span>Loại khách:</span>
+                                    <select style="width: 100%" class="form-select-lg text-center form-control">
+                                        <option>Diamond</option>
+                                        <option>Gold</option>
+                                        <option>Silver</option>
+                                        <option>Member</option>
+                                    </select>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label>Tên dịch vụ:</label>
-                                <input class="form-control" type="text" size="45">
+                                <span>Họ tên:</span>
+                                <input class="form-control" type="text" size="45px">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label>Diện tích sử dụng:</label>
-                                <input class="form-control" type="text" size="45">
+                                <span>Ngày sinh:</span>
+                                <input type="date"  size="45px" class="text-center form-control">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label>Chi phí thuê:</label>
-                                <input class="form-control" type="text" size="15">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>Số lượng người tối đa:</label>
-                                <input class="form-control" type="text" size="15">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>Kiểu thuê:</label>
+                                <span>Giới tính:</span>
                                 <select style="width: 100%" class="form-select-lg text-center form-control">
-                                    <option>Year</option>
-                                    <option>Month</option>
-                                    <option>Day</option>
-                                    <option>Hours</option>
+                                    <option>Nam</option>
+                                    <option>Nữ</option>
                                 </select>
                             </td>
                         </tr>
-
-                        <tr id="s1" style="display: none">
-                            <td>
-                                <label>Tiêu chuẩn phòng:</label>
-                                <input class="form-control" type="text" size="15">
-                            </td>
-                        </tr>
-
-                        <tr id="s2" style="display: none">
-                            <td>
-                                <label>Mô tả tiện nghi khác:</label>
-                                <input class="form-control" type="text" size="15">
-                            </td>
-                        </tr>
-
-                        <tr id="s3" style="display: none">
-                            <td>
-                                <label>Diện tích hồ bơi:</label>
-                                <input class="form-control" type="text" size="15" value="0">
-                            </td>
-                        </tr>
-
-                        <tr id="s4" style="display: none">
-                            <td>
-                                <label>Số tầng:</label>
-                                <input class="form-control" type="text" size="15" value="0">
-                            </td>
-                        </tr>
-
-                        <tr id="s5" style="display: none">
-                            <td>
-                                <label>Dịch vụ miễn phí đi kèm:</label>
-                                <input class="form-control" type="text" size="15">
-                            </td>
-                        </tr>
-
                         <tr>
-                            <td colspan="2" align="center">
-                                <input class="form-control btn-success" style="width: 300px" type="submit"
-                                       value="Thêm mới dịch vụ"/>
+                            <td>
+                                <span>Số CMND:</span>
+                                <input type="text" size="45px" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Số điện thoại:</span>
+                                <input type="text" size="45px" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <span>Email:</span>
+                                <input type="text" size="45px" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <span>Địa chỉ:</span>
+                                <input size="45px" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="d-flex justify-content-center">
+                                <input class="form-control btn-success text-center" style="width: 300px" type="submit"
+                                       value="Thêm mới khách hàng">
                             </td>
                         </tr>
                     </table>
