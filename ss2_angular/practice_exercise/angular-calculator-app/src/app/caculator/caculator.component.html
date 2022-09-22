@@ -1,0 +1,14 @@
+<label>Nhập số thứ nhất: </label>
+<input type="number" [(ngModel)]="number1">
+<br>
+<select [(ngModel)]="character">
+  <option value="+">Cộng</option>
+  <option value="-">Trừ</option>
+  <option value="*">Nhân</option>
+  <option value="/">Chia</option>
+</select>
+<br>
+<label>Nhập số thứ hai: </label>
+<input type="number" [(ngModel)]="number2">
+<br>
+<div>Kết quả: {{ caculator(number1,number2,character)}}</div>
