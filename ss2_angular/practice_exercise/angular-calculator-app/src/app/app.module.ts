@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { CaculatorComponent } from './caculator/caculator.component';
 import {FormsModule} from "@angular/forms";
 import { ColorComponent } from './color/color.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CaculatorComponent,
-    ColorComponent
+    ColorComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

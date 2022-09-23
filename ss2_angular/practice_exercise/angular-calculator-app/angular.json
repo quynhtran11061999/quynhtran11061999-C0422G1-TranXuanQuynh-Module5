@@ -89,9 +89,9 @@
             ],
             "styles": [
               "src/styles.css",
-              "ss2_angular/practice_exercise/angular-calculator-app/node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": ["ss2_angular/practice_exercise/angular-calculator-app/node_modules/bootstrap/dist/js/bootstrap.min.js"]
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
           }
         },
         "lint": {
