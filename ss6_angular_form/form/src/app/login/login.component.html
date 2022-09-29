@@ -1,0 +1,16 @@
+<form [formGroup]="loginForm" (ngSubmit)="createLogin()">
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input formControlName="email" name="email" type="email" class="form-control"
+           aria-describedby="emailHelp">
+    <p style="color: red" *ngIf="loginForm.controls.email.hasError('email') && submitter">Nhập sai định dạng!!!</p>
+    <p style="color: red" *ngIf="loginForm.controls.email.hasError('required') && submitter">Không được để trống!!!</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Mật Khẩu</label>
+    <input formControlName="password" name="password" type="text" class="form-control">
+    <p style="color: red" *ngIf="loginForm.controls.password.hasError('minlength') && submitter">Lớn hơn hoặc bằng 6 ký tự!!!</p>
+    <p style="color: red" *ngIf="loginForm.controls.password.hasError('required') && submitter">Không được để trống!!!</p>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

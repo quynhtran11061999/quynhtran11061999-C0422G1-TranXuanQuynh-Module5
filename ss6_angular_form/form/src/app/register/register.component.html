@@ -1,15 +1,63 @@
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div class="container">
+  <form [formGroup]="registerFrom" (ngSubmit)="createRegister()">
+    <div>
+      <h1>Đăng ký</h1>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input formControlName="email" name="email" type="email" class="form-control"
+             aria-describedby="emailHelp">
+      <p style="color: red" *ngIf="registerFrom.controls.email.hasError('pattern') && submitter">Nhập sai định dạng!!!</p>
+      <p style="color: red" *ngIf="registerFrom.controls.email.hasError('required') && submitter">Không được để trống!!!</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Mật Khẩu</label>
+      <input formControlName="password" name="password" type="text" class="form-control">
+      <p style="color: red" *ngIf="registerFrom.controls.password.hasError('minlength') && submitter">Lớn hơn hoặc bằng 6 ký tự!!!</p>
+      <p style="color: red" *ngIf="registerFrom.controls.password.hasError('required') && submitter">Không được để trống!!!</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Xác nhận mật khẩu</label>
+      <input formControlName="confirmPassword" name="confirmPassword" type="text" class="form-control">
+      <p style="color: red" *ngIf="registerFrom.hasError('check') && submitter">Giông giống password!!!</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Tuổi</label>
+      <input formControlName="age" name="age" type="number" class="form-control">
+      <p style="color: red" *ngIf="registerFrom.controls.age.hasError('required') && submitter">Không được để trống!!!</p>
+      <p style="color: red" *ngIf="registerFrom.controls.age.hasError('min') && submitter">Phải lớn hơn 18 tuổi!!!</p>
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">Số điện thoại</label>
+      <input formControlName="phone" name="phone" type="text" class="form-control">
+      <p style="color: red" *ngIf="registerFrom.controls.phone.hasError('required') && submitter">Không được để trống!!!</p>
+      <p style="color: red" *ngIf="registerFrom.controls.phone.hasError('pattern') && submitter">Không đúng định dạng!!</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Giới tính</label>
+      <div class="form-check">
+        <input formControlName="gender" name="gender" class="form-check-input"
+               value="true" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+        <label class="form-check-label" for="flexRadioDefault1">
+          Nam
+        </label>
+      </div>
+      <div class="form-check">
+        <input formControlName="gender" name="gender" class="form-check-input"
+               value="false" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+        <label class="form-check-label" for="flexRadioDefault2">
+          Nữ
+        </label>
+      </div>
+    </div>
+    <div class="mb-3">
+      <select formControlName="country" name="country" class="form-select" aria-label="Default select example">
+        <option selected>Quốc Gia</option>
+        <option value="Việt Nam">Việt Nam</option>
+        <option value="Trung Quốc">Trung Quốc</option>
+        <option value="Nhật Bản">Nhật Bản</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Đăng ký</button>
+  </form>
+</div>
