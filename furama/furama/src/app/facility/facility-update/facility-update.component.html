@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+  <title>Edit Service</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<header th:replace="~{layout/header::header}"></header>
+<div class="container-fluid">
+  <h1>Sửa thông tin dịch vụ</h1>
+  <form action="/facility/update" method="post" th:object="${facilityDto}" onchange="showServiceInput(this.value)">
+    <fieldset>
+      <legend style="margin-top: 15px; margin-bottom: 15px">Thông tin dịch vụ</legend>
+      <table class="form-control-lg table table-success table-striped">
+        <tr>
+          <td>
+            <span>Mã khách hàng:</span>
+            <input readonly class="form-control" type="text" th:field="*{idService}">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select class="form-select-lg text-center" style="width: 100%" th:field="*{serviceTypeId}">
+              <option th:each="facilityType: ${facilityTypeList}"
+                      th:value="${facilityType.facilityTypeId}" th:text="${facilityType.facilityTypeName}"></option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Tên dịch vụ:</span>
+            <input class="form-control" type="text" th:field="*{name}">
+            <div class="text-danger" th:errors="*{name}"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Diện tích sử dụng:</span>
+            <input class="form-control" type="text" th:field="*{area}">
+            <div class="text-danger" th:errors="*{area}"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Chi phí thuê:</span>
+            <input class="form-control" type="text" th:field="*{cost}">
+            <div class="text-danger" th:errors="*{cost}"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Số lượng người tối đa:</span>
+            <input class="form-control" type="text" th:field="*{maxPeople}">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Kiểu thuê:</span>
+            <select th:field="*{rentTypeId}" style="width: 100%" class="form-select-lg text-center">
+              <option th:each="rentType: ${rentTypeList}"
+                      th:value="${rentType.rentTypeId}" th:text="${rentType.rentTypeName}"></option>
+            </select>
+          </td>
+        </tr>
+        <tr id="s1">
+          <td>
+            <span>Tiêu chuẩn phòng:</span>
+            <input class="form-control" type="text" th:field="*{standardRoom}">
+            <div class="text-danger" th:errors="*{standardRoom}"></div>
+          </td>
+        </tr>
+
+        <tr id="s2">
+          <td>
+            <span>Mô tả tiện nghi khác:</span>
+            <input class="form-control" type="text" th:field="*{descriptionOfAmenities}">
+            <div class="text-danger" th:errors="*{descriptionOfAmenities}"></div>
+          </td>
+        </tr>
+
+        <tr id="s3">
+          <td>
+            <span>Diện tích hồ bơi:</span>
+            <input class="form-control" type="text" th:field="*{poolArea}">
+            <div class="text-danger" th:errors="*{poolArea}"></div>
+          </td>
+        </tr>
+
+        <tr id="s4">
+          <td>
+            <span>Số tầng:</span>
+            <input class="form-control" type="text" th:field="*{numberOfFloors}">
+            <div class="text-danger" th:errors="*{numberOfFloors}"></div>
+          </td>
+        </tr>
+
+        <tr id="s5">
+          <td>
+            <span>Dịch vụ miễn phí đi kèm:</span>
+            <input class="form-control" type="text" th:field="*{freeService}">
+            <div class="text-danger" th:errors="*{freeService}"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2" class="d-flex justify-content-center">
+            <input class="form-control btn-success text-center" style="width: 300px" type="submit" value="Sửa thông tin dịch vụ"/>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+  </form>
+</div>
+<footer th:replace="~{layout/footer::footer}"></footer>
+<script src="/js/bootstrap.min.js"></script>
+<script>
+  function showServiceInput(value) {
+    switch (value) {
+      case "None":
+        document.getElementById("s1").style.display = "none";
+        document.getElementById("s2").style.display = "none";
+        document.getElementById("s3").style.display = "none";
+        document.getElementById("s4").style.display = "none";
+        document.getElementById("s5").style.display = "none";
+        break;
+      case "1":
+        document.getElementById("s1").style.display = "table-row";
+        document.getElementById("s2").style.display = "table-row";
+        document.getElementById("s3").style.display = "table-row";
+        document.getElementById("s4").style.display = "table-row";
+        document.getElementById("s5").style.display = "none";
+        break;
+      case "2":
+        document.getElementById("s1").style.display = "table-row";
+        document.getElementById("s2").style.display = "table-row";
+        document.getElementById("s3").style.display = "none";
+        document.getElementById("s4").style.display = "table-row";
+        document.getElementById("s5").style.display = "none";
+        break;
+      case "3":
+        document.getElementById("s1").style.display = "none";
+        document.getElementById("s2").style.display = "none";
+        document.getElementById("s3").style.display = "none";
+        document.getElementById("s4").style.display = "none";
+        document.getElementById("s5").style.display = "table-row";
+        break;
+    }
+  }
+</script>
+</body>
+</html>
