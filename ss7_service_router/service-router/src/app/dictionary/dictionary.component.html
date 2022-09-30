@@ -1,0 +1,10 @@
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let dictionary of dictionary">
+    <td>{{dictionary.word}}</td>
+    <td><button [routerLink]="['',dictionary.word]">Translate</button></td>
+  </tr>
+</table>
