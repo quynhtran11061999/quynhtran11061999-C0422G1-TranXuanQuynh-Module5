@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {Product} from "../../../model/product";
 import {ProductService} from "../../../service/product.service";
@@ -10,18 +10,22 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./product-update.component.css']
 })
 export class ProductUpdateComponent implements OnInit {
-  product: Product= {};
+  product: Product = {};
   productForm: FormGroup;
-  constructor(private iProductService : ProductService,private activatedRoute : ActivatedRoute,private router:Router) {
+
+  constructor(private iProductService: ProductService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       const id = paramMap.get('id')
-      this.product = this.iProductService.findById(Number(id))
-    });
-    this.productForm = new FormGroup({
-      id: new FormControl(this.product.id),
-      name: new FormControl(this.product.name),
-      price: new FormControl(this.product.price),
-      description: new FormControl(this.product.description),
+      this.iProductService.findById(Number(id)).subscribe(next => {
+        this.product = next;
+
+        this.productForm = new FormGroup({
+          id: new FormControl(this.product.id),
+          name: new FormControl(this.product.name),
+          price: new FormControl(this.product.price),
+          description: new FormControl(this.product.description),
+        });
+      })
     });
 
 
@@ -29,10 +33,12 @@ export class ProductUpdateComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   submit() {
     const product = this.productForm.value;
-    this.iProductService.updateProduct(product);
-    this.productForm.reset();
-    this.router.parseUrl("/product/list");
+    this.iProductService.updateProduct(product).subscribe(next => {
+      this.productForm.reset();
+      this.router.parseUrl("/product/list");
+    });
   }
 }
