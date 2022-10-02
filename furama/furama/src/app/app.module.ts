@@ -12,6 +12,7 @@ import { FacilityUpdateComponent } from './facility/facility-update/facility-upd
 import { CustomerListComponent } from './customer/customer-list/customer-list.component';
 import { CustomerAddComponent } from './customer/customer-add/customer-add.component';
 import { CustomerUpdateComponent } from './customer/customer-update/customer-update.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CustomerUpdateComponent } from './customer/customer-update/customer-upd
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

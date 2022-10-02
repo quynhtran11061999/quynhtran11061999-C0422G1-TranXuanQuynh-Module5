@@ -1,0 +1,171 @@
+{
+  "facility": [
+    {
+      "id": 1,
+      "name": "Villa Beach Front",
+      "area": 25000,
+      "cost": 1000000,
+      "maxPeople": 10,
+      "standardRoom": "vip",
+      "descriptionOtherConvenience": "có hồ bơi",
+      "poolArea": 500,
+      "numberOfFloors": 4,
+      "facilityFree": "",
+      "facilityType": {
+        "id": 1,
+        "name": "year"
+      },
+      "rentTypeId": {
+        "id": 1,
+        "name": "Villa"
+      }
+    },
+    {
+      "id": 2,
+      "name": "House Princess 01",
+      "area": 25000,
+      "cost": 1000000,
+      "maxPeople": 10,
+      "standardRoom": "vip",
+      "descriptionOtherConvenience": "có hồ bơi",
+      "poolArea": 500,
+      "numberOfFloors": 4,
+      "facilityFree": "",
+      "facilityType": {
+        "id": 1,
+        "name": "year"
+      },
+      "rentTypeId": {
+        "id": 1,
+        "name": "Villa"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Room Twin 01",
+      "area": 25000,
+      "cost": 1000000,
+      "maxPeople": 10,
+      "standardRoom": "vip",
+      "descriptionOtherConvenience": "có hồ bơi",
+      "poolArea": 500,
+      "numberOfFloors": 4,
+      "facilityFree": "",
+      "facilityType": {
+        "id": 1,
+        "name": "year"
+      },
+      "rentTypeId": {
+        "id": 1,
+        "name": "Villa"
+      }
+    },
+    {
+      "id": 4,
+      "name": "House Princess 02",
+      "area": 25000,
+      "cost": 1000000,
+      "maxPeople": 10,
+      "standardRoom": "vip",
+      "descriptionOtherConvenience": "có hồ bơi",
+      "poolArea": 500,
+      "numberOfFloors": 4,
+      "facilityFree": "",
+      "facilityType": {
+        "id": 1,
+        "name": "year"
+      },
+      "rentTypeId": {
+        "id": 1,
+        "name": "Villa"
+      }
+    }
+  ],
+  "customer": [
+    {
+      "id": 1,
+      "name": "tri",
+      "dateOfBirt": "25-10-1998",
+      "gender": true,
+      "idCard": "12345678",
+      "phoneNumber": "0333933391",
+      "email": "minhtricgv@gmail.com",
+      "address": "da nang",
+      "customerType": {
+        "id": 1,
+        "name": "vip"
+      }
+    },
+    {
+      "id": 2,
+      "name": "quynh ",
+      "dateOfBirt": "25-10-1998",
+      "gender": true,
+      "idCard": "12345678",
+      "phoneNumber": "045674567",
+      "email": "kjhasdkh@gmail.com",
+      "address": "da nang",
+      "customerType": {
+        "id": 2,
+        "name": "tb"
+      }
+    },
+    {
+      "id": 3,
+      "name": "trung ",
+      "dateOfBirt": "25-10-1998",
+      "gender": true,
+      "idCard": "12345678",
+      "phoneNumber": "094567523421",
+      "email": "klajsdky@gmail.com",
+      "address": "da nang",
+      "customerType": {
+        "id": 3,
+        "name": "thuong"
+      }
+    },
+    {
+      "id": 4,
+      "name": "thai",
+      "dateOfBirt": "25-10-1998",
+      "gender": true,
+      "idCard": "12345678",
+      "phoneNumber": "08123213443",
+      "email": "kbskvgi@gmail.com",
+      "address": "da nang",
+      "customerType": {
+        "id": 1,
+        "name": "vip"
+      }
+    },
+    {
+      "id": 5,
+      "name": "tai",
+      "dateOfBirt": "25-10-1998",
+      "gender": true,
+      "idCard": "12345678",
+      "phoneNumber": " '081233223'",
+      "email": "uiiweyrk@gmail.com",
+      "address": "da nang",
+      "customerType": {
+        "id": 1,
+        "name": "vip"
+      }
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "vip"
+    },
+    {
+      "id": 2,
+      "name": "bth"
+    },
+    {
+      "id": 3,
+      "name": "ga`"
+    }
+  ]
+
+}
