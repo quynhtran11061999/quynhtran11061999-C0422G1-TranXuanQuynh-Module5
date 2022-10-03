@@ -2,7 +2,7 @@ import {IcustomerType} from "./icustomer-type";
 
 export interface Icustomer {
   id?:number;
-  customerType: IcustomerType;
+  customerType?: IcustomerType;
   name?:string;
   dateOfBirth?:string;
   gender?: boolean;

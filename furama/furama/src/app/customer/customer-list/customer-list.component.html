@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-5">
-      <h1>Danh sách khác hàng</h1>
+      <h1>Danh sách khách hàng</h1>
     </div>
     <div class="col-lg-5"></div>
     <div class="col-lg-2">
@@ -10,7 +10,8 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-circle"
              viewBox="0 0 16 16">
           <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+          <path
+            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
         </svg>
         Thêm mới khách hàng
       </button>
@@ -82,74 +83,56 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let customer of customers, index as i">
+        <tr *ngFor="let customer of customers | paginate: {id: 'pages',
+        itemsPerPage:5,
+        currentPage:page,
+        totalItems: totalRecords}; index as i">
           <td>{{i + 1}}</td>
           <td>{{customer.customerType.name}}</td>
           <td>{{customer.name}}</td>
           <td>{{customer.dateOfBirth}}</td>
-          <td>{{customer.gender}}</td>
+          <td *ngIf="customer.gender">
+            Nam
+          </td>
+          <td *ngIf="!customer.gender">
+            Nữ
+          </td>
           <td>{{customer.idCard}}</td>
           <td>{{customer.phoneNumber}}</td>
           <td>{{customer.email}}</td>
           <td>{{customer.address}}</td>
           <td>
-            <button class="btn btn-warning">Sửa</button>
-            <button class="btn btn-danger">Xóa</button>
+            <button [routerLink]="['/customers/update/',customer.id]" class="btn btn-warning me-3">Sửa</button>
+            <button (click)="delete(customer.id, customer.name)" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                    class="btn btn-danger">Xóa
+            </button>
           </td>
         </tr>
         </tbody>
       </table>
-    </div>
-  </div>
-  <div class="row">
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link">
-            Previous
-          </a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" ></a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">/</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#"></a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" >
-            Next
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</div>
-<!-- Modal delete customer -->
-<div class="modal fade" id="deleteCustomer1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <form method="post" action="/customer/delete">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel1">Delete</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <b class="ml-5px">ID :</b>
-        <input type="text" readonly name="id" id="id" class="form-control"><br>
-        <b class="ml-5px">Tên khách hàng :</b>
-        <input type="text" readonly name="name" id="name" class="form-control"><br>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-          <button type="submit" class="btn btn-primary">Xóa</button>
-        </div>
+      <div>
+        <pagination-controls id="pages" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
       </div>
     </div>
-  </form>
+  </div>
 </div>
-<script>
-  function deleteCustomer(id, name) {
-    document.getElementById("id").value = id;
-    document.getElementById("name").value = name;
-  }
-</script>
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Thông báo !!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>Bạn có muốn xóa <span class="text-danger">{{name}}</span>???</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button (click)="deleteModal(id)" data-bs-dismiss="modal" type="button" class="btn btn-danger">
+          Xóa
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

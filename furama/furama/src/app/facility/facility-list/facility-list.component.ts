@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {IFacility} from "../../../model/ifacility";
-import {FacilityService} from "../../service/facility.service";
-import {Router} from "@angular/router";
+import {IFacility} from '../../model/ifacility';
+import {FacilityService} from '../../service/facility.service';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-facility-list',
@@ -21,6 +22,6 @@ export class FacilityListComponent implements OnInit {
   getAll() {
     this.facilityService.getAll().subscribe(next => {
       this.facilities = next;
-    })
+    });
   }
 }

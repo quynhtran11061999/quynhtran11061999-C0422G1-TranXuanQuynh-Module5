@@ -1,21 +1,16 @@
-<div class="container-fluid">
-  <form action="/customer/update" method="post" >
+<div class="container">
+  <form [formGroup]="customerForm" (ngSubmit)="submit()">
     <h1>Sửa thông tin khách hàng</h1>
     <fieldset>
       <legend style="margin-top: 15px; margin-bottom: 15px">Thông tin khách hàng</legend>
-      <table class="form-control-lg table table-success table-striped">
+      <table class="form-control-lg table">
         <tr>
           <td>
-            <span>Mã khách hàng:</span>
-            <input class="form-control" type="text" readonly>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label>Loại khách:</label>
+            <span>Loại khách:</span>
             <div class="form-control" size="45px">
-              <select style="width: 100%" class="form-select-lg text-center">
-                <option></option>
+              <select formControlName="customerType" style="width: 100%" class="form-select-lg text-center">
+                <option *ngFor="let customerTypeObj of customerTypes"
+                        [ngValue]="customerTypeObj.id">{{customerTypeObj.name}}</option>
               </select>
             </div>
           </td>
@@ -23,62 +18,57 @@
         <tr>
           <td>
             <span>Họ tên:</span>
-            <input  class="form-control" type="text">
-            <div class="text-danger" ></div>
+            <input class="form-control" formControlName="name" type="text" size="45px">
           </td>
         </tr>
         <tr>
           <td>
             <span>Ngày sinh:</span>
-            <input  class="form-control" type="text" >
-            <div class="text-danger" ></div>
+            <input type="date" formControlName="dateOfBirth" size="45px" class="text-center form-control">
           </td>
         </tr>
         <tr>
           <td>
-            <label>Giới tính:</label>
-            <select style="width: 100%" class="form-select-lg text-center">
-              <option >Nam</option>
-              <option >Nữ</option>
-            </select>
+            <span>Giới tính:</span>
+            <div class="form-control" size="45px">
+              <select style="width: 100%" formControlName="gender" class="form-select-lg text-center">
+                <option [ngValue]="true">Nam</option>
+                <option [ngValue]="false">Nữ</option>
+              </select>
+            </div>
           </td>
         </tr>
         <tr>
           <td>
             <span>Số CMND:</span>
-            <input  class="form-control" type="text" >
-            <div class="text-danger"></div>
+            <input type="text" formControlName="idCard" size="45px" class="form-control">
           </td>
         </tr>
         <tr>
           <td>
             <span>Số điện thoại:</span>
-            <input  class="form-control" type="text" >
-            <div class="text-danger" ></div>
+            <input formControlName="phoneNumber" type="text" size="45px" class="form-control">
           </td>
         </tr>
         <tr>
           <td>
             <span>Email:</span>
-            <input  class="form-control" type="text" >
-            <div class="text-danger" ></div>
+            <input formControlName="email" type="text" size="45px" class="form-control">
           </td>
         </tr>
         <tr>
           <td>
             <span>Địa chỉ:</span>
-            <input  class="form-control" type="text" >
-            <div class="text-danger" ></div>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2" class="d-flex justify-content-center">
-            <input class="form-control btn-success text-center" style="width: 300px" type="submit"
-                   value="Sửa thông tin khách hàng">
+            <input formControlName="address" size="45px" class="form-control">
           </td>
         </tr>
       </table>
+      <div class="d-flex justify-content-center">
+        <button class="form-control btn-success text-center " style="width: 300px" type="submit">Sửa thông tin khách hàng
+        </button>
+      </div>
     </fieldset>
   </form>
 </div>
+
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {RentType} from "../../../model/rent-type";
-import {FacilityType} from "../../../model/facility-type";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {RentType} from '../../model/rent-type';
+import {FacilityType} from '../../model/facility-type';
+
 
 @Component({
   selector: 'app-facility-add',
