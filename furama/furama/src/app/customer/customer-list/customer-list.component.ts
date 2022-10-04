@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Icustomer} from '../../model/customer/icustomer';
 import {CustomerService} from '../../service/customer.service';
+import {FormControl, FormGroup} from '@angular/forms';
+import Swal from "sweetalert2";
 
 
 @Component({
@@ -11,8 +13,9 @@ import {CustomerService} from '../../service/customer.service';
 export class CustomerListComponent implements OnInit {
   customers: Icustomer[] = [];
   deleteCustomer: Icustomer = null;
+  customer1 : Icustomer
   id: number = 0;
-  name: string = null;
+  nameDelete: string = "";
   totalRecords : number;
   page: number = 1;
 
@@ -32,13 +35,31 @@ export class CustomerListComponent implements OnInit {
 
   delete(id: number, name: string) {
     this.id = id;
-    this.name = name;
+    this.nameDelete = name;
   }
 
   deleteModal(id: number) {
     this.customerService.deleteCustomer(id).subscribe(next => {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Xóa thành công',
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.deleteCustomer = next;
       this.getAll();
     });
+  }
+
+  detail(customer : Icustomer){
+   this.customer1 = customer;
+  }
+
+
+  search(name: string, email: string) {
+    this.customerService.search(name,email).subscribe(next => {
+      this.customers = next;
+    })
   }
 }

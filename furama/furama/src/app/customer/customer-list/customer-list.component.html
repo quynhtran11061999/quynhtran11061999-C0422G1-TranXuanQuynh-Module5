@@ -3,66 +3,15 @@
     <div class="col-lg-5">
       <h1>Danh sách khách hàng</h1>
     </div>
-    <div class="col-lg-5"></div>
-    <div class="col-lg-2">
-      <button type="button" class="btn btn-success" style="width: 100%;height: 100%" data-bs-toggle="modal"
-              data-bs-target="#exampleModal">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-circle"
-             viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-          <path
-            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-        </svg>
-        Thêm mới khách hàng
-      </button>
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="modal-title text-success" id="exampleModalLabel">Thêm mới khách hàng</h3>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label class="text-success">Họ tên</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label class="text-success">Ngày sinh</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label class="text-success">Giới tính</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label class="text-success">Số CMND</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label class="text-success">Số Điện Thoại</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label class="text-success">Email</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label class="text-success">Loại khách</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label class="text-success">Địa chỉ</label>
-                <input type="text" class="form-control" required>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-              <button type="button" class="btn btn-success">Lưu</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="col-lg-2"></div>
+    <div class="col-lg-5">
+      <form class="d-flex" >
+        <input class="form-control me-2" name="keyword" type="search" placeholder="Name" aria-label="Search"
+               #name>
+        <input class="form-control me-2" name="keyword" type="search" placeholder="Email" aria-label="Search"
+               #email>
+        <button (click)="search(name.value,email.value)" class="btn btn-outline-success ">Search</button>
+      </form>
     </div>
   </div>
   <div class="row">
@@ -103,21 +52,25 @@
           <td>{{customer.address}}</td>
           <td>
             <button [routerLink]="['/customers/update/',customer.id]" class="btn btn-warning me-3">Sửa</button>
-            <button (click)="delete(customer.id, customer.name)" data-bs-toggle="modal" data-bs-target="#exampleModal1"
-                    class="btn btn-danger">Xóa
+            <button (click)="delete(customer.id, customer.name)" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                    class="btn btn-danger me-3">Xóa
+            </button>
+            <button class="btn btn-primary me-3" data-bs-toggle="modal" (click)="detail(customer)"
+                    data-bs-target="#exampleModal">Chi tiết
             </button>
           </td>
         </tr>
         </tbody>
       </table>
       <div>
-        <pagination-controls id="pages" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+        <pagination-controls id="pages" maxSize="5" directionLinks="true"
+                             (pageChange)="page = $event"></pagination-controls>
       </div>
     </div>
   </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -125,13 +78,39 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div>Bạn có muốn xóa <span class="text-danger">{{name}}</span>???</div>
+        <div>Bạn có muốn xóa <span class="text-danger">{{nameDelete}}</span>???</div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
         <button (click)="deleteModal(id)" data-bs-dismiss="modal" type="button" class="btn btn-danger">
           Xóa
         </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal detail-->
+<div *ngIf="customer1" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-success" id="exampleModalLabel">Thông tin chi tiết khách hàng</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6>Loại khách hàng: {{customer1.customerType.name}}</h6>
+        <h6>Tên khách hàng: {{customer1.name}}</h6>
+        <h6>Ngày sinh: {{customer1.dateOfBirth}}</h6>
+        <h6 *ngIf="customer1.gender">Giới tính: Nam</h6>
+        <h6 *ngIf="!customer1.gender">Giới tính: Nữ</h6>
+        <h6>CMND: {{customer1.idCard}}</h6>
+        <h6>Số điện thoại: {{customer1.phoneNumber}}</h6>
+        <h6>Email: {{customer1.email}}</h6>
+        <h6>Địa chỉ: {{customer1.address}}</h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

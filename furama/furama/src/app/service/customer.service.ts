@@ -12,7 +12,7 @@ export class CustomerService {
   }
 
   getAll(): Observable<any> {
-    return this.http.get("http://localhost:3000/customer");
+    return this.http.get("http://localhost:3000/customer")
   }
   createCustomer(customer){
     return this.http.post("http://localhost:3000/customer",customer);
@@ -28,5 +28,9 @@ export class CustomerService {
 
   deleteCustomer(id: number){
     return this.http.delete("http://localhost:3000/customer/"+id);
+  }
+
+  search(name: string, email: string): Observable<any>{
+    return this.http.get("http://localhost:3000/customer?name_like="+ name + "&email_like=" +email)
   }
 }

@@ -4,11 +4,13 @@
     <fieldset>
       <legend style="margin-top: 15px; margin-bottom: 15px">Thông tin khách hàng</legend>
       <table class="form-control-lg table">
+        <button class="form-control btn-success text-center " style="width: 300px" type="reset">Reset</button>
         <tr>
           <td>
             <span>Loại khách:</span>
             <div class="form-control" size="45px">
               <select formControlName="customerType" style="width: 100%" class="form-select-lg text-center">
+                <option value="" [disabled]="true" >Chọn loại khách</option>
                 <option *ngFor="let customerTypeObj of customerTypes"
                         [ngValue]="customerTypeObj">{{customerTypeObj.name}}</option>
               </select>
@@ -19,12 +21,15 @@
           <td>
             <span>Họ tên:</span>
             <input class="form-control" formControlName="name" type="text" size="45px">
+            <p style="color: red" *ngIf="customerForm.controls.name.hasError('pattern') && submitter">Nhập sai định dạng!!!</p>
+            <p style="color: red" *ngIf="customerForm.controls.name.hasError('required') && submitter">Không được để trống!!!</p>
           </td>
         </tr>
         <tr>
           <td>
             <span>Ngày sinh:</span>
             <input type="date" formControlName="dateOfBirth" size="45px" class="text-center form-control">
+            <p style="color: red" *ngIf="customerForm.controls.dateOfBirth.hasError('required') && submitter">Không được để trống!!!</p>
           </td>
         </tr>
         <tr>
@@ -32,34 +37,44 @@
             <span>Giới tính:</span>
             <div class="form-control" size="45px">
               <select style="width: 100%" formControlName="gender" class="form-select-lg text-center">
+                <option value="" [disabled]="true" >Chọn giới tính</option>
                 <option [ngValue]="true">Nam</option>
                 <option [ngValue]="false">Nữ</option>
               </select>
             </div>
+            <p style="color: red" *ngIf="customerForm.controls.gender.hasError('required') && submitter">Không được để trống!!!</p>
           </td>
         </tr>
         <tr>
           <td>
             <span>Số CMND:</span>
             <input type="text" formControlName="idCard" size="45px" class="form-control">
+            <p style="color: red" *ngIf="customerForm.controls.idCard.hasError('required') && submitter">Không được để trống!!!</p>
+            <p style="color: red" *ngIf="customerForm.controls.idCard.hasError('pattern') && submitter">Nhập sai định dạng!!!</p>
           </td>
         </tr>
         <tr>
           <td>
             <span>Số điện thoại:</span>
             <input formControlName="phoneNumber" type="text" size="45px" class="form-control">
+            <p style="color: red" *ngIf="customerForm.controls.phoneNumber.hasError('required') && submitter">Không được để trống!!!</p>
+            <p style="color: red" *ngIf="customerForm.controls.phoneNumber.hasError('pattern') && submitter">Nhập sai định dạng!!!</p>
           </td>
         </tr>
         <tr>
           <td>
             <span>Email:</span>
             <input formControlName="email" type="text" size="45px" class="form-control">
+            <p style="color: red" *ngIf="customerForm.controls.email.hasError('required') && submitter">Không được để trống!!!</p>
+            <p style="color: red" *ngIf="customerForm.controls.email.hasError('email') && submitter">Nhập sai định dạng!!!</p>
           </td>
         </tr>
         <tr>
           <td>
             <span>Địa chỉ:</span>
             <input formControlName="address" size="45px" class="form-control">
+            <p style="color: red" *ngIf="customerForm.controls.address.hasError('required') && submitter">Không được để trống!!!</p>
+
           </td>
         </tr>
       </table>

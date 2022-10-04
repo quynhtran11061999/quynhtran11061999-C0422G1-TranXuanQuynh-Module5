@@ -5,6 +5,7 @@ import {CustomerService} from '../../service/customer.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {IcustomerType} from '../../model/customer/icustomer-type';
 import {CustomerTypeService} from '../../service/customer-type.service';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-customer-update',
@@ -49,6 +50,13 @@ export class CustomerUpdateComponent implements OnInit {
         this.customerForm.reset();
         this.router.navigateByUrl("/customers");
       });
+    });
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Sửa thông tin thành công',
+      showConfirmButton: false,
+      timer: 1500
     });
   }
 }

@@ -97,20 +97,6 @@
       "address": "1"
     },
     {
-      "id": 2,
-      "customerType": {
-        "id": 2,
-        "name": "Platinium"
-      },
-      "name": "Trung",
-      "dateOfBirth": "2022-10-01",
-      "gender": true,
-      "idCard": "2",
-      "phoneNumber": "2",
-      "email": "2",
-      "address": "2"
-    },
-    {
       "id": 3,
       "customerType": {
         "id": 3,
@@ -123,20 +109,6 @@
       "phoneNumber": "3",
       "email": "3",
       "address": "3"
-    },
-    {
-      "id": 4,
-      "customerType": {
-        "id": 4,
-        "name": "Silver"
-      },
-      "name": "Nghia",
-      "dateOfBirth": "2022-10-21",
-      "gender": false,
-      "idCard": "4",
-      "phoneNumber": "4",
-      "email": "4",
-      "address": "4"
     },
     {
       "id": 5,
@@ -153,32 +125,32 @@
       "address": "5"
     },
     {
-      "id": 6,
+      "id": 9,
       "customerType": {
-        "id": 4,
-        "name": "Silver"
+        "id": 1,
+        "name": "Diamond"
       },
-      "name": "Truong",
-      "dateOfBirth": "2022-10-07",
-      "gender": true,
-      "idCard": "6",
-      "phoneNumber": "6",
-      "email": "6",
-      "address": "6"
+      "name": "Vinh",
+      "dateOfBirth": "2022-10-15",
+      "gender": false,
+      "idCard": "0911111111",
+      "phoneNumber": "0905265685",
+      "email": "quynhtran@gmail.com",
+      "address": "trung ngu vll"
     },
     {
-      "id": 7,
+      "id": 10,
       "customerType": {
         "id": 2,
         "name": "Platinium"
       },
-      "name": "2",
-      "dateOfBirth": "2022-10-09",
+      "name": "fff",
+      "dateOfBirth": "2022-10-14",
       "gender": false,
-      "idCard": "2",
-      "phoneNumber": "2",
-      "email": "2",
-      "address": "2"
+      "idCard": "099999999",
+      "phoneNumber": "0909999999",
+      "email": "2@gmail.com",
+      "address": "lh"
     }
   ],
   "customerType": [

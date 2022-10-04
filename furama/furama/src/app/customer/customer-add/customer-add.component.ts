@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../../service/customer.service';
 import {CustomerTypeService} from '../../service/customer-type.service';
 import {IcustomerType} from '../../model/customer/icustomer-type';
 import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-customer-add',
@@ -12,16 +13,17 @@ import {Router} from '@angular/router';
 })
 export class CustomerAddComponent implements OnInit {
   customerTypes: IcustomerType[] = [];
+  submitter = false;
   customerForm: FormGroup = new FormGroup({
     id: new FormControl(),
-    customerType: new FormControl(),
-    name: new FormControl(),
-    dateOfBirth: new FormControl(),
-    gender: new FormControl(),
-    idCard: new FormControl(),
-    phoneNumber: new FormControl(),
-    email: new FormControl(),
-    address: new FormControl()
+    customerType: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z ]+')]),
+    dateOfBirth: new FormControl('', [Validators.required]),
+    gender: new FormControl('', [Validators.required]),
+    idCard: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}|[0-9]{12}$')]),
+    phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^((090)|(091)|(\\\\\\\\(84\\\\\\\\)\\\\\\\\+90)|(\\\\\\\\(84\\\\\\\\)\\\\\\\\+91))[0-9]{7}$')]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    address: new FormControl('', [Validators.required])
   });
 
   constructor(private customerService: CustomerService, private customerTypeService: CustomerTypeService, private router: Router) {
@@ -32,10 +34,21 @@ export class CustomerAddComponent implements OnInit {
   }
 
   submit() {
+    this.submitter = true;
     const customer = this.customerForm.value;
-    this.customerService.createCustomer(customer).subscribe(next => {
-      this.customerForm.reset();
-      this.router.navigateByUrl("/customers")
-    });
+    if (this.customerForm.valid) {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Thêm mới thành công',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      this.customerService.createCustomer(customer).subscribe(next => {
+        this.customerForm.reset();
+        this.router.navigateByUrl('/customers');
+      });
+    }
+
   }
 }
