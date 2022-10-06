@@ -123,34 +123,6 @@
       "phoneNumber": "5",
       "email": "5",
       "address": "5"
-    },
-    {
-      "id": 9,
-      "customerType": {
-        "id": 1,
-        "name": "Diamond"
-      },
-      "name": "Vinh",
-      "dateOfBirth": "2022-10-15",
-      "gender": false,
-      "idCard": "0911111111",
-      "phoneNumber": "0905265685",
-      "email": "quynhtran@gmail.com",
-      "address": "trung ngu vll"
-    },
-    {
-      "id": 10,
-      "customerType": {
-        "id": 2,
-        "name": "Platinium"
-      },
-      "name": "fff",
-      "dateOfBirth": "2022-10-14",
-      "gender": false,
-      "idCard": "099999999",
-      "phoneNumber": "0909999999",
-      "email": "2@gmail.com",
-      "address": "lh"
     }
   ],
   "customerType": [

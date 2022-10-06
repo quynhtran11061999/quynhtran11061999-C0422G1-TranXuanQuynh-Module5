@@ -1,0 +1,166 @@
+{
+  "xe": [
+    {
+      "id": 1,
+      "bienSoXe": "1231",
+      "loaiXe": "Giường nằm",
+      "tenNhaXe": "Mai Linh",
+      "diemDi": {
+        "id": 3,
+        "diemDi": "Tam ky"
+      },
+      "diemDen": {
+        "id": 2,
+        "diemDen": "Sai gon"
+      },
+      "soDienThoai": "0909999999",
+      "email": "g@gmail.com",
+      "gioDi": "2:00",
+      "gioDen": "3:00"
+    },
+    {
+      "id": 2,
+      "bienSoXe": "1232",
+      "loaiXe": "Ghế ngồi",
+      "tenNhaXe": "Mai Linh",
+      "diemDi": {
+        "id": 2,
+        "diemDi": "Quang Nam"
+      },
+      "diemDen": {
+        "id": 3,
+        "diemDen": "Khanh Hoa"
+      },
+      "soDienThoai": "0909999999",
+      "email": "g@gmail.com",
+      "gioDi": "2:00",
+      "gioDen": "3:00"
+    },
+    {
+      "id": 3,
+      "bienSoXe": "1233",
+      "loaiXe": "Ghế ngồi",
+      "tenNhaXe": "Thành Bưởi",
+      "diemDi": {
+        "id": 3,
+        "diemDi": "Tam ky"
+      },
+      "diemDen": {
+        "id": 2,
+        "diemDen": "Sai gon"
+      },
+      "soDienThoai": "0909999999",
+      "email": "g@gmail.com",
+      "gioDi": "2:00",
+      "gioDen": "3:00"
+    },
+    {
+      "id": 4,
+      "bienSoXe": "1234",
+      "loaiXe": "Giường nằm",
+      "tenNhaXe": "Mai Linh",
+      "diemDi": {
+        "id": 4,
+        "diemDi": "Hoi An"
+      },
+      "diemDen": {
+        "id": 3,
+        "diemDen": "Khanh Hoa"
+      },
+      "soDienThoai": "0909999999",
+      "email": "g@gmail.com",
+      "gioDi": "2:00",
+      "gioDen": "3:00"
+    },
+    {
+      "id": 5,
+      "bienSoXe": "1235",
+      "loaiXe": "Giường nằm",
+      "tenNhaXe": "Thành Bưởi",
+      "diemDi": {
+        "id": 3,
+        "diemDi": "Tam ky"
+      },
+      "diemDen": {
+        "id": 2,
+        "diemDen": "Sai gon"
+      },
+      "soDienThoai": "0909999999",
+      "email": "g@gmail.com",
+      "gioDi": "2:00",
+      "gioDen": "3:00"
+    },
+    {
+      "id": 6,
+      "bienSoXe": "1236",
+      "loaiXe": "Giường nằm",
+      "tenNhaXe": "Mai Linh",
+      "diemDi": {
+        "id": 1,
+        "diemDi": "Da Nang"
+      },
+      "diemDen": {
+        "id": 4,
+        "diemDen": "Nghe An"
+      },
+      "soDienThoai": "0909999999",
+      "email": "g@gmail.com",
+      "gioDi": "2:00",
+      "gioDen": "3:00"
+    },
+    {
+      "id": 7,
+      "bienSoXe": "1237",
+      "loaiXe": "Giường nằm",
+      "tenNhaXe": "Mai Linh",
+      "diemDi": {
+        "id": 1,
+        "diemDi": "Da Nang"
+      },
+      "diemDen": {
+        "id": 4,
+        "diemDen": "Nghe An"
+      },
+      "soDienThoai": "0909999999",
+      "email": "g@gmail.com",
+      "gioDi": "10:11",
+      "gioDen": "00:13"
+    }
+  ],
+  "diemDi": [
+    {
+      "id": 1,
+      "diemDi": "Da Nang"
+    },
+    {
+      "id": 2,
+      "diemDi": "Quang Nam"
+    },
+    {
+      "id": 3,
+      "diemDi": "Tam ky"
+    },
+    {
+      "id": 4,
+      "diemDi": "Hoi An"
+    }
+  ],
+  "diemDen": [
+    {
+      "id": 1,
+      "diemDen": "Quang Tri"
+    },
+    {
+      "id": 2,
+      "diemDen": "Sai gon"
+    },
+    {
+      "id": 3,
+      "diemDen": "Khanh Hoa"
+    },
+    {
+      "id": 4,
+      "diemDen": "Nghe An"
+    }
+  ]
+}

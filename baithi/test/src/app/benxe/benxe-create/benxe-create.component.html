@@ -1,0 +1,80 @@
+<div class="container">
+  <form [formGroup]="xeForm" (ngSubmit)="submit()">
+    <h1>Thêm mới chuyến xe</h1>
+    <fieldset>
+      <legend style="margin-top: 15px; margin-bottom: 15px">Thông tin chuyến xe</legend>
+      <table class="form-control-lg table">
+        <tr>
+          <td>
+            <span>Biển số xe:</span>
+            <input class="form-control" formControlName="bienSoXe" type="text" size="45px">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Loại xe:</span>
+            <input type="text" formControlName="loaiXe" size="45px" class="form-control">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Tên nhà xe:</span>
+            <input type="text" formControlName="tenNhaXe" size="45px" class="form-control">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Điểm đi:</span>
+            <div class="form-control" size="45px">
+              <select formControlName="diemDi" style="width: 100%" class="form-select-lg text-center">
+                <option *ngFor="let diemDiObj of diemDi"
+                        [ngValue]="diemDiObj">{{diemDiObj.name}}</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Điểm đến:</span>
+            <div class="form-control" size="45px">
+              <select formControlName="diemDen" style="width: 100%" class="form-select-lg text-center">
+                <option *ngFor="let diemDenObj of diemDen"
+                        [ngValue]="diemDenObj">{{diemDenObj.name}}</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Số điện thoại:</span>
+            <input formControlName="soDienThoai" type="text" size="45px" class="form-control">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Email:</span>
+            <input formControlName="email" type="text" size="45px" class="form-control">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Giờ đi:</span>
+            <input formControlName="gioDi" type="time" size="45px" class="form-control">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Giờ đến:</span>
+            <input formControlName="gioDen" type="time" size="45px" class="form-control">
+          </td>
+        </tr>
+      </table>
+      <div class="d-flex justify-content-center">
+        <button class="form-control btn-success text-center " style="width: 300px" type="submit">Thêm mới chuyến xe
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+
